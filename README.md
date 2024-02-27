@@ -1,7 +1,3 @@
-# Backpack
-
-<img src="Resources/school-bag.png" alt="drawing" width="200"/>
-
 Backpack is a packer that use process hollowing to hide your payload writen in Golang. This is based on the work of abdullah2993 (https://github.com/abdullah2993/go-runpe) 
 
 
