@@ -15,7 +15,5 @@ go build main.go
 ```
 Then, just execute your PE and enjoy.
 
-<img src="Resources/example.png" alt="drawing" width="600"/>
-
 ## Contributing
 Pull requests are welcome.
